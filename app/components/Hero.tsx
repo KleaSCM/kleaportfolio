@@ -10,7 +10,20 @@ const techLogos = [
   { id: 4, name: "firebase", position: { top: "25%", left: "72%" } },
   { id: 5, name: "mysql", position: { top: "1%", left: "20%" } },
   { id: 6, name: "react", position: { top: "2%", left: "40%" } },
-  { id: 7, name: "nodejs", position: { top: "4%", left: "30%" } },
+  { id: 7, name: "C++", position: { top: "4%", left: "70%" } },
+  { id: 8, name: "Python", position: { top: "45%", left: "62%" } },
+  { id: 9, name: "Electron", position: { top: "32%", left: "48%" } },
+  { id: 10, name: "GO", position: { top: "46%", left: "35%" } },
+  { id: 11, name: "SASS", position: { top: "40%", left: "22%" } },
+  { id: 12, name: "SQLite", position: { top: "44%", left: "85%" } },
+  { id: 13, name: "MongoDB", position: { top: "30%", left: "10%" } },
+  { id: 14, name: "Tailwind", position: { top: "48%", left: "74%" } },
+  { id: 15, name: "MUI", position: { top: "30%", left: "10%" } },
+  { id: 16, name: "GraphQL", position: { top: "4%", left: "88%" } },
+  { id: 17, name: ".NET", position: { top: "15%", left: "30%" } },
+  { id: 18, name: "Azure", position: { top: "68%", left: "15%" } },
+  { id: 19, name: "Lua", position: { top: "75%", left: "38%" } },
+  { id: 20, name: "YAML", position: { top: "58%", left: "50%" } },
 ];
 
 const Hero = () => {
