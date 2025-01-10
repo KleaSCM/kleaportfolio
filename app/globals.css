@@ -2,20 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define variables for light and dark mode */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-light: #ffffff;
+  --foreground-light: #4a0a56;
+  --background-dark: #210419;
+  --foreground-dark: #ededed;
+
+  /* Gradient variables for light and dark mode */
+  --gradient-light: linear-gradient(120deg, #f6d365, #fda085);
+  --gradient-dark: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+
+  /* Default colors (light mode fallback) */
+  --background: var(--background-light);
+  --foreground: var(--foreground-light);
+  --background-gradient: var(--gradient-light);
 }
 
+/* Dark mode preference */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--background-dark);
+    --foreground: var(--foreground-dark);
+    --background-gradient: var(--gradient-dark);
   }
 }
 
+/* Global body and html styles */
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
+  margin: 0;
+  padding: 0;
+  background: var(--background-gradient); /* Use dynamic gradient */
+  color: var(--foreground); /* Use dynamic foreground */
   font-family: Arial, Helvetica, sans-serif;
+  background-size: 200% 200%; /* For gradient animation */
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Tailwind CSS Box Model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Reset for consistent styling across browsers */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, a, button {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+/* Typography defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+/* Default text styling */
+p, a, span, div {
+  font-size: 16px;
+}
+
+/* Link styling */
+a {
+  color: var(--foreground);
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: #9f7aea; /* Example hover color */
+}
+
+/* Button styling */
+button {
+  background-color: var(--foreground);
+  color: var(--background);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #9f7aea; /* Matches hover color for links */
 }
