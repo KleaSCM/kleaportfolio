@@ -68,30 +68,9 @@ const Navbar = () => {
             <img
               src="https://img.icons8.com/windows/32/ffffff/curseforge.png"
               alt="CurseForge"
-              className="w-6 h-6"
+              className="w-15 h-5"
             />
-            <span className="text-sm font-semibold">CurseForge</span>
-          </div>
-        </Link>
-
-        {/* Skills */}
-        <Link href="#skills" className="hover:text-gray-300">
-          <div className="flex flex-col items-center transition-transform duration-200 hover:scale-110">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M16.5 10.5v7.5m-3-10.5v10.5m-3-13.5v13.5m-3-16.5v16.5"
-              />
-            </svg>
-            <span className="text-sm font-semibold">Skills</span>
+            <span className="text-sm font-semibold"></span>
           </div>
         </Link>
       </div>

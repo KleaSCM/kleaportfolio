@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 
 const projects = [
   { id: 1, title: "GipityLauncher", image: "/images/project.png", link: "/projects/GipityLauncher" },
-  { id: 2, title: "Project 2", image: "/images/project.png", link: "link-to-Project2-page" },
-  { id: 3, title: "Project 3", image: "/images/project.png", link: "link-to-Project3-page" },
-  { id: 4, title: "Project 4", image: "/images/project.png", link: "link-to-Project4-page" },
-  { id: 5, title: "Project 5", image: "/images/project.png", link: "link-to-Project5-page" },
-  { id: 6, title: "Project 6", image: "/images/project.png", link: "link-to-Project6-page" },
-  { id: 7, title: "Project 7", image: "/images/project.png", link: "link-to-Project7-page" },
-  { id: 8, title: "Project 8", image: "/images/project.png", link: "link-to-Project8-page" },
-  { id: 9, title: "Project 9", image: "/images/project.png", link: "link-to-Project9-page" },
+  { id: 2, title: "Armanda", image: "/images/project.png", link: "/projects/Armanda" },
+  { id: 3, title: "ArtScape", image: "/images/project.png", link: "/projects/ArtScape" },
+  { id: 4, title: "BlueFrog", image: "/images/project.png", link: "/projects/BlueFrog" },
+  { id: 5, title: "Kdeamon", image: "/images/project.png", link: "/projects/Kdeamon" },
+  { id: 6, title: "SylvDA", image: "/images/project.png", link: "/projects/SylvDA" },
+  { id: 7, title: "Valeera", image: "/images/project.png", link: "/projects/Valeera" },
+  { id: 8, title: "VulScan", image: "/images/project.png", link: "/projects/VulScan" },
+  { id: 9, title: "EncryptDcrypt", image: "/images/project.png", link: "/projects/EncryptDcrypt" },
 ];
 
 const Projects = () => {
