@@ -11,7 +11,7 @@ const projects = [
   { id: 5, title: "Kdeamon", image: "/images/project.png", link: "/projects/Kdeamon" },
   { id: 6, title: "SylvDA", image: "/images/project.png", link: "/projects/SylvDA" },
   { id: 7, title: "Valeera", image: "/images/project.png", link: "/projects/Valeera" },
-  { id: 8, title: "VulScan", image: "/images/project.png", link: "/projects/VulScan" },
+  { id: 8, title: "VulSCAN", image: "/images/project.png", link: "/projects/VulSCAN" },
   { id: 9, title: "EncryptDcrypt", image: "/images/project.png", link: "/projects/EncryptDcrypt" },
 ];
 

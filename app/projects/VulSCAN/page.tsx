@@ -1,77 +1,49 @@
 import ProjectPage from "@/components/ProjectPage";
 
-const Project1 = () => {
+const VulSCAN = () => {
   return (
     <>
       <ProjectPage
-        title="GipityLauncher"
-        description="GipityLauncher is a desktop application that serves as a comprehensive productivity tool and AI-enhanced launcher. It combines cutting-edge technologies for smooth app launching, dynamic scripting, and natural AI interactions."
+        title="VulSCAN"
+        description="VulSCAN is a comprehensive vulnerability scanner designed for security assessments. It features port scanning, banner grabbing, HTTP header analysis, and vulnerability detection. The tool generates detailed JSON reports for actionable insights."
         details={[
           {
-            name: "Next.js",
-            reason: "Used for server-side rendering and routing.",
-            badge: "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
+            name: "Go",
+            reason: "Provides efficient and scalable performance for network operations and scanning.",
+            badge: "https://img.shields.io/badge/Go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white",
           },
           {
-            name: "TypeScript",
-            reason: "Ensures type safety and robust development.",
-            badge: "https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white",
+            name: "Networking",
+            reason: "Implements robust port scanning, banner grabbing, and SSL/TLS checks for comprehensive assessments.",
+            badge: "https://img.shields.io/badge/Networking-%2300CCBB.svg?style=for-the-badge&logo=internet-explorer&logoColor=white",
           },
           {
-            name: "C++",
-            reason: "Used for backend logic and performance-critical operations.",
-            badge: "https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white",
-          },
-          {
-            name: "Electron",
-            reason: "Provides a seamless desktop application experience.",
-            badge: "https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white",
+            name: "JSON Reporting",
+            reason: "Generates detailed and structured reports for ease of analysis and actionable results.",
+            badge: "https://img.shields.io/badge/JSON-%23000000.svg?style=for-the-badge&logo=json&logoColor=white",
           },
         ]}
-        screenshot="/images/project.png"
-        codeSnippet={`int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cerr << "Error: No command provided.\\n";
-        displayHelp();
-        return 1;
-    }
-    std::string command = argv[1];
-    if (command == "LaunchAPP") {
-        if (argc < 3) {
-            std::cerr << "Error: No app path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string appPath = argv[2];
-        launchApp(appPath);
-    } else if (command == "saveScript") {
-        if (argc < 4) {
-            std::cerr << "Error: No file path or content provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string filePath = argv[2];
-        std::string content = argv[3];
-        saveScript(filePath, content);
-    } else if (command == "openFolder") {
-        if (argc < 3) {
-            std::cerr << "Error: No folder path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string folderPath = argv[2];
-        openFolder(folderPath);
+        screenshot="/images/vulscan_project.png"
+        codeSnippet={`func ScanPorts(host string, ports []int) map[int]bool {
+  openPorts := make(map[int]bool)
+
+  for _, port := range ports {
+    address := fmt.Sprintf("%s:%d", host, port)
+    conn, err := net.DialTimeout("tcp", address, 1*time.Second)
+    if err == nil {
+      openPorts[port] = true
+      conn.Close()
     } else {
-        std::cerr << "Error: Unrecognized command.\\n";
-        displayHelp();
-        return 1;
+      openPorts[port] = false
     }
-    return 0;
+  }
+
+  return openPorts
 }`}
         buttons={[
           {
             label: "GitHub",
-            link: "https://github.com/kleascm/project1",
+            link: "https://github.com/kleascm/vulscan",
             icon: "https://img.icons8.com/ios-glyphs/30/ffffff/github.png",
           },
         ]}
@@ -80,4 +52,4 @@ const Project1 = () => {
   );
 };
 
-export default Project1;
+export default VulSCAN;

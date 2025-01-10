@@ -4,13 +4,13 @@ const Project1 = () => {
   return (
     <>
       <ProjectPage
-        title="GipityLauncher"
-        description="GipityLauncher is a desktop application that serves as a comprehensive productivity tool and AI-enhanced launcher. It combines cutting-edge technologies for smooth app launching, dynamic scripting, and natural AI interactions."
+        title="Valeera"
+        description="Valeera is a smart, AI-powered assistant designed to handle user queries dynamically, manage code snippets, and provide efficient interactions through a sleek Electron-based frontend integrated with a Go backend."
         details={[
           {
-            name: "Next.js",
-            reason: "Used for server-side rendering and routing.",
-            badge: "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
+            name: "React",
+            reason: "Used for building dynamic user interfaces.",
+            badge: "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
           },
           {
             name: "TypeScript",
@@ -18,60 +18,64 @@ const Project1 = () => {
             badge: "https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white",
           },
           {
-            name: "C++",
-            reason: "Used for backend logic and performance-critical operations.",
-            badge: "https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white",
+            name: "Go",
+            reason: "Provides high-performance backend API handling and extensibility.",
+            badge: "https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white",
           },
           {
             name: "Electron",
-            reason: "Provides a seamless desktop application experience.",
+            reason: "Delivers a seamless desktop application experience.",
             badge: "https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white",
           },
         ]}
-        screenshot="/images/project.png"
-        codeSnippet={`int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cerr << "Error: No command provided.\\n";
-        displayHelp();
-        return 1;
-    }
-    std::string command = argv[1];
-    if (command == "LaunchAPP") {
-        if (argc < 3) {
-            std::cerr << "Error: No app path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string appPath = argv[2];
-        launchApp(appPath);
-    } else if (command == "saveScript") {
-        if (argc < 4) {
-            std::cerr << "Error: No file path or content provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string filePath = argv[2];
-        std::string content = argv[3];
-        saveScript(filePath, content);
-    } else if (command == "openFolder") {
-        if (argc < 3) {
-            std::cerr << "Error: No folder path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string folderPath = argv[2];
-        openFolder(folderPath);
+        screenshot="/images/valeera.png"
+        codeSnippet={`func messageHandler(w http.ResponseWriter, r *http.Request) {
+  log.Printf("Received %s request for %s", r.Method, r.URL.Path);
+
+  if r.Method != http.MethodPost {
+    log.Println("Method not allowed");
+    http.Error(w, "Only POST method is allowed", http.StatusMethodNotAllowed);
+    return;
+  }
+
+  var msg Message;
+  err := json.NewDecoder(r.Body).Decode(&msg);
+  if err != nil {
+    log.Println("Error decoding message:", err);
+    http.Error(w, "Bad request", http.StatusBadRequest);
+    return;
+  }
+
+  log.Printf("Received message: %s", msg.Content);
+
+  var reply string;
+  if isQuestion(msg.Content) {
+    if snippet, exists := Snippets[msg.Content]; exists {
+      reply = snippet.Code;
     } else {
-        std::cerr << "Error: Unrecognized command.\\n";
-        displayHelp();
-        return 1;
+      reply, err = getOpenAIResponse(msg.Content);
+      if err != nil {
+        log.Println("Failed to get a response from OpenAI:", err);
+        http.Error(w, "Failed to get a response from OpenAI", http.StatusInternalServerError);
+        return;
+      }
     }
-    return 0;
+  } else {
+    reply = generateReply(msg.Content);
+  }
+
+  response := Response{
+    Content: msg.Content,
+    Reply:   reply,
+  };
+
+  w.Header().Set("Content-Type", "application/json");
+  json.NewEncoder(w).Encode(response);
 }`}
         buttons={[
           {
             label: "GitHub",
-            link: "https://github.com/kleascm/project1",
+            link: "https://github.com/kleascm/valeera",
             icon: "https://img.icons8.com/ios-glyphs/30/ffffff/github.png",
           },
         ]}

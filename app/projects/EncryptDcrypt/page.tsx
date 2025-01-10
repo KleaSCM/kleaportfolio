@@ -4,74 +4,58 @@ const Project1 = () => {
   return (
     <>
       <ProjectPage
-        title="GipityLauncher"
-        description="GipityLauncher is a desktop application that serves as a comprehensive productivity tool and AI-enhanced launcher. It combines cutting-edge technologies for smooth app launching, dynamic scripting, and natural AI interactions."
+        title="EncryptDcrypt"
+        description="A utility tool for secure file management, enabling encryption and decryption of files, generating password-protected Excel and Word documents, and automating repetitive content creation tasks. Built using Python with an emphasis on security and automation."
         details={[
           {
-            name: "Next.js",
-            reason: "Used for server-side rendering and routing.",
-            badge: "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
+            name: "Python",
+            reason: "Core language used for encryption, decryption, and file operations.",
+            badge: "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white",
           },
           {
-            name: "TypeScript",
-            reason: "Ensures type safety and robust development.",
-            badge: "https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white",
+            name: "Cryptography",
+            reason: "Used for file encryption and decryption to ensure data security.",
+            badge: "https://img.shields.io/badge/Cryptography-6E5494?style=for-the-badge",
           },
           {
-            name: "C++",
-            reason: "Used for backend logic and performance-critical operations.",
-            badge: "https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white",
+            name: "OpenPyXL",
+            reason: "Automates creation and protection of Excel documents with random data.",
+            badge: "https://img.shields.io/badge/OpenPyXL-FFDD44?style=for-the-badge",
           },
           {
-            name: "Electron",
-            reason: "Provides a seamless desktop application experience.",
-            badge: "https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white",
+            name: "Win32Com",
+            reason: "Automates creation and protection of Word documents.",
+            badge: "https://img.shields.io/badge/Win32Com-007ACC?style=for-the-badge",
           },
         ]}
-        screenshot="/images/project.png"
-        codeSnippet={`int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cerr << "Error: No command provided.\\n";
-        displayHelp();
-        return 1;
-    }
-    std::string command = argv[1];
-    if (command == "LaunchAPP") {
-        if (argc < 3) {
-            std::cerr << "Error: No app path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string appPath = argv[2];
-        launchApp(appPath);
-    } else if (command == "saveScript") {
-        if (argc < 4) {
-            std::cerr << "Error: No file path or content provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string filePath = argv[2];
-        std::string content = argv[3];
-        saveScript(filePath, content);
-    } else if (command == "openFolder") {
-        if (argc < 3) {
-            std::cerr << "Error: No folder path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string folderPath = argv[2];
-        openFolder(folderPath);
-    } else {
-        std::cerr << "Error: Unrecognized command.\\n";
-        displayHelp();
-        return 1;
-    }
-    return 0;
-}`}
+        screenshot="/images/encryption-utility.png"
+        codeSnippet={`# Encrypt a file with Fernet
+from cryptography.fernet import Fernet
+
+# Load encryption key
+def load_key():
+    with open("key.txt", "rb") as key_file:
+        return key_file.read()
+
+# Encrypt a file
+def encrypt_file(file_path, key):
+    with open(file_path, "rb") as file:
+        data = file.read()
+    cipher = Fernet(key)
+    encrypted_data = cipher.encrypt(data)
+    with open(file_path, "wb") as file:
+        file.write(encrypted_data)
+
+# Main function
+if __name__ == "__main__":
+    key = load_key()
+    encrypt_file("example.txt", key)
+    print("File encrypted successfully.")
+`}
         buttons={[
           {
             label: "GitHub",
-            link: "https://github.com/kleascm/project1",
+            link: "https://github.com/kleascm/encryption-utility",
             icon: "https://img.icons8.com/ios-glyphs/30/ffffff/github.png",
           },
         ]}

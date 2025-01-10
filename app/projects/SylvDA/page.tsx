@@ -4,74 +4,42 @@ const Project1 = () => {
   return (
     <>
       <ProjectPage
-        title="GipityLauncher"
-        description="GipityLauncher is a desktop application that serves as a comprehensive productivity tool and AI-enhanced launcher. It combines cutting-edge technologies for smooth app launching, dynamic scripting, and natural AI interactions."
+        title="SylvDA"
+        description="SylvDA is an intelligent desktop assistant that combines natural language processing, API integrations, 3D model rendering, and a user-friendly interface for a versatile productivity and information tool."
         details={[
           {
-            name: "Next.js",
-            reason: "Used for server-side rendering and routing.",
-            badge: "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
+            name: "Python",
+            reason: "Core programming language for implementing logic and integrations.",
+            badge: "https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54",
           },
           {
-            name: "TypeScript",
-            reason: "Ensures type safety and robust development.",
-            badge: "https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white",
+            name: "Tkinter",
+            reason: "Used for building the graphical user interface (GUI).",
+            badge: "https://img.shields.io/badge/Tkinter-%23e3e3e3.svg?style=for-the-badge",
           },
           {
-            name: "C++",
-            reason: "Used for backend logic and performance-critical operations.",
-            badge: "https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white",
+            name: "OpenAI API",
+            reason: "Provides natural language understanding and response generation.",
+            badge: "https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white",
           },
           {
-            name: "Electron",
-            reason: "Provides a seamless desktop application experience.",
-            badge: "https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white",
+            name: "Pyglet",
+            reason: "Handles 3D model rendering for enhanced visual capabilities.",
+            badge: "https://img.shields.io/badge/Pyglet-4B8BBE?style=for-the-badge&logo=python&logoColor=white",
           },
         ]}
-        screenshot="/images/project.png"
-        codeSnippet={`int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cerr << "Error: No command provided.\\n";
-        displayHelp();
-        return 1;
-    }
-    std::string command = argv[1];
-    if (command == "LaunchAPP") {
-        if (argc < 3) {
-            std::cerr << "Error: No app path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string appPath = argv[2];
-        launchApp(appPath);
-    } else if (command == "saveScript") {
-        if (argc < 4) {
-            std::cerr << "Error: No file path or content provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string filePath = argv[2];
-        std::string content = argv[3];
-        saveScript(filePath, content);
-    } else if (command == "openFolder") {
-        if (argc < 3) {
-            std::cerr << "Error: No folder path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string folderPath = argv[2];
-        openFolder(folderPath);
-    } else {
-        std::cerr << "Error: Unrecognized command.\\n";
-        displayHelp();
-        return 1;
-    }
-    return 0;
-}`}
+        screenshot="/images/sylvda.png"
+        codeSnippet={`def process_input(self, event=None):
+    user_input = self.input_box.get()
+    self.output_box.insert(tk.END, f"User: {user_input}\n")
+    self.input_box.delete(0, tk.END)
+
+    response = self.handle_command(user_input.lower())
+    self.output_box.insert(tk.END, f"Assistant: {response}\n")`}
         buttons={[
           {
             label: "GitHub",
-            link: "https://github.com/kleascm/project1",
+            link: "https://github.com/kleascm/sylvda",
             icon: "https://img.icons8.com/ios-glyphs/30/ffffff/github.png",
           },
         ]}

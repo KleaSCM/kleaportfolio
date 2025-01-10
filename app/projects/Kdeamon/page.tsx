@@ -1,77 +1,87 @@
 import ProjectPage from "@/components/ProjectPage";
 
-const Project1 = () => {
+const ProjectKdeamon = () => {
   return (
     <>
       <ProjectPage
-        title="GipityLauncher"
-        description="GipityLauncher is a desktop application that serves as a comprehensive productivity tool and AI-enhanced launcher. It combines cutting-edge technologies for smooth app launching, dynamic scripting, and natural AI interactions."
+        title="Kdeamon"
+        description="Kdeamon is a lightweight application launcher for Linux, designed to streamline workflow with a fuzzy search and inline autocomplete. It runs as a daemon, offering quick and efficient app launching directly from a minimalistic GUI."
         details={[
           {
-            name: "Next.js",
-            reason: "Used for server-side rendering and routing.",
-            badge: "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
+            name: "Go",
+            reason: "Core backend logic for handling app launching and daemonization.",
+            badge: "https://img.shields.io/badge/Go-00ADD8.svg?style=for-the-badge&logo=go&logoColor=white",
           },
           {
-            name: "TypeScript",
-            reason: "Ensures type safety and robust development.",
-            badge: "https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white",
+            name: "Fyne",
+            reason: "Used to create the lightweight, platform-independent GUI.",
+            badge: "https://img.shields.io/badge/Fyne-GUI-blue?style=for-the-badge",
           },
           {
-            name: "C++",
-            reason: "Used for backend logic and performance-critical operations.",
-            badge: "https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white",
+            name: "Linux System Programming",
+            reason: "Integrated Linux-specific features like parsing .desktop files and daemonizing the application.",
+            badge: "https://img.shields.io/badge/Linux-System%20Programming-yellowgreen?style=for-the-badge",
           },
           {
-            name: "Electron",
-            reason: "Provides a seamless desktop application experience.",
-            badge: "https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white",
+            name: "Fuzzy Search",
+            reason: "Implemented fuzzy search to enhance app search and selection.",
+            badge: "https://img.shields.io/badge/Fuzzy%20Search-Algorithm-brightgreen?style=for-the-badge",
           },
         ]}
-        screenshot="/images/project.png"
-        codeSnippet={`int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cerr << "Error: No command provided.\\n";
-        displayHelp();
-        return 1;
+        screenshot="/images/kdeamon.png"
+        codeSnippet={`package main
+
+import (
+    "bufio"
+    "fmt"
+    "os"
+    "sync"
+    "fyne.io/fyne/v2"
+    "fyne.io/fyne/v2/app"
+    "fyne.io/fyne/v2/widget"
+    "github.com/sahilm/fuzzy"
+)
+
+var (
+    appList []string
+    mu sync.Mutex
+    input *widget.Entry
+    suggestion string
+)
+
+func main() {
+    Kapp := app.New()
+    Kwindow := Kapp.NewWindow("Kdeamon")
+
+    input = widget.NewEntry()
+    input.SetPlaceHolder("Search Kdeamon!")
+
+    input.OnChanged = func(s string) {
+        go func() {
+            mu.Lock()
+            defer mu.Unlock()
+
+            if s == "" {
+                suggestion = ""
+                return
+            }
+            matches := fuzzy.Find(s, appList)
+            if len(matches) > 0 {
+                suggestion = appList[matches[0].Index]
+            } else {
+                suggestion = ""
+            }
+        }()
     }
-    std::string command = argv[1];
-    if (command == "LaunchAPP") {
-        if (argc < 3) {
-            std::cerr << "Error: No app path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string appPath = argv[2];
-        launchApp(appPath);
-    } else if (command == "saveScript") {
-        if (argc < 4) {
-            std::cerr << "Error: No file path or content provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string filePath = argv[2];
-        std::string content = argv[3];
-        saveScript(filePath, content);
-    } else if (command == "openFolder") {
-        if (argc < 3) {
-            std::cerr << "Error: No folder path provided.\\n";
-            displayHelp();
-            return 1;
-        }
-        std::string folderPath = argv[2];
-        openFolder(folderPath);
-    } else {
-        std::cerr << "Error: Unrecognized command.\\n";
-        displayHelp();
-        return 1;
-    }
-    return 0;
+
+    content := widget.NewVBox(input)
+    Kwindow.SetContent(content)
+    Kwindow.ShowAndRun()
 }`}
         buttons={[
           {
             label: "GitHub",
-            link: "https://github.com/kleascm/project1",
+            link: "https://github.com/kleascm/kdeamon",
             icon: "https://img.icons8.com/ios-glyphs/30/ffffff/github.png",
           },
         ]}
@@ -80,4 +90,4 @@ const Project1 = () => {
   );
 };
 
-export default Project1;
+export default ProjectKdeamon;
