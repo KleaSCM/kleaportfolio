@@ -16,21 +16,21 @@ const techLogos = [
     name: "TypeScript",
     badge: "https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white",
     link: "https://www.typescriptlang.org/",
-    position: { top: "10%", left: "15%" },
+    position: { top: "40%", left: "5%" },
   },
   {
     id: 3,
     name: "Next.js",
     badge: "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
     link: "https://nextjs.org/",
-    position: { top: "15%", left: "20%" },
+    position: { top: "20%", left: "10%" },
   },
   {
     id: 4,
     name: "Firebase",
     badge: "https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase",
     link: "https://firebase.google.com/",
-    position: { top: "20%", left: "25%" },
+    position: { top: "55%", left: "10%" },
   },
 
   {
@@ -38,51 +38,49 @@ const techLogos = [
     name: "MySQL",
     badge: "https://img.shields.io/badge/mysql-%234479A1.svg?style=for-the-badge&logo=mysql&logoColor=white",
     link: "https://www.mysql.com/",
-    position: { top: "5%", left: "70%" },
+    position: { top: "20%", left: "27%" },
   },
   {
     id: 6,
     name: "React",
     badge: "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
     link: "https://reactjs.org/",
-    position: { top: "10%", left: "75%" },
+    position: { top: "20%", left: "40%" },
   },
   {
     id: 7,
     name: "C++",
     badge: "https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white",
     link: "https://isocpp.org/",
-    position: { top: "15%", left: "80%" },
+    position: { top: "20%", left: "53%" },
   },
   {
     id: 8,
     name: "Python",
     badge: "https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white",
     link: "https://www.python.org/",
-    position: { top: "20%", left: "85%" },
+    position: { top: "20%", left: "63%" },
   },
-
-  // Middle Group (Row 1)
   {
     id: 9,
     name: "Electron",
     badge: "https://img.shields.io/badge/electron-%2347848F.svg?style=for-the-badge&logo=electron&logoColor=white",
     link: "https://www.electronjs.org/",
-    position: { top: "40%", left: "30%" },
+    position: { top: "5%", left: "75%" },
   },
   {
     id: 10,
     name: "Go",
     badge: "https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white",
     link: "https://go.dev/",
-    position: { top: "40%", left: "50%" },
+    position: { top: "20%", left: "80%" },
   },
   {
     id: 11,
     name: "SASS",
     badge: "https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white",
     link: "https://sass-lang.com/",
-    position: { top: "40%", left: "70%" },
+    position: { top: "35%", left: "83%" },
   },
   {
     id: 12,
@@ -105,21 +103,21 @@ const techLogos = [
     name: "TailwindCSS",
     badge: "https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white",
     link: "https://tailwindcss.com/",
-    position: { top: "50%", left: "70%" },
+    position: { top: "50%", left: "78%" },
   },
   {
     id: 15,
     name: "Material-UI",
     badge: "https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white",
     link: "https://mui.com/",
-    position: { top: "55%", left: "50%" },
+    position: { top: "67%", left: "50%" },
   },
   {
     id: 16,
     name: "GraphQL",
     badge: "https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white",
     link: "https://graphql.org/",
-    position: { top: "60%", left: "60%" },
+    position: { top: "65%", left: "80%" },
   },
 
   // Bottom Group
@@ -149,7 +147,7 @@ const techLogos = [
     name: "YAML",
     badge: "https://img.shields.io/badge/yaml-%23000000.svg?style=for-the-badge&logo=yaml&logoColor=white",
     link: "https://yaml.org/",
-    position: { top: "75%", left: "85%" },
+    position: { top: "80%", left: "78%" },
   },
 ];
 
