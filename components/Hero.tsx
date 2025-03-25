@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const techLogos = [
-  // Top Left Group
   {
     id: 1,
     name: "JavaScript",
@@ -34,7 +33,6 @@ const techLogos = [
     position: { top: "20%", left: "25%" },
   },
 
-  // Top Right Group
   {
     id: 5,
     name: "MySQL",

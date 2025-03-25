@@ -5,7 +5,6 @@ const Navbar = () => {
   return (
     <nav className="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 bg-gray-800 bg-opacity-80 text-white px-4 py-3 rounded-full shadow-lg backdrop-blur-md">
       <div className="flex items-center space-x-6">
-        {/* Home Button */}
         <Link href="/" className="hover:text-gray-300">
           <div className="flex flex-col items-center transition-transform duration-200 hover:scale-110">
             <svg
@@ -26,7 +25,6 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* GitHub */}
         <Link
           href="https://github.com/your-profile"
           target="_blank"
@@ -42,7 +40,6 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* LinkedIn */}
         <Link
           href="https://linkedin.com/in/your-profile"
           target="_blank"
@@ -58,7 +55,6 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* CurseForge */}
         <Link
           href="https://www.curseforge.com/"
           target="_blank"

@@ -16,7 +16,7 @@ const projects = [
 ];
 
 const Projects = () => {
-  const [centerCard, setCenterCard] = useState<number>(5); // Default center card is Project 5
+  const [centerCard, setCenterCard] = useState<number>(5); 
 
   const positions: { [key: number]: { top: string; left: string } } = {
     1: { top: "18%", left: "15%" },
@@ -38,7 +38,6 @@ const Projects = () => {
         <h2 className="text-4xl font-bold text-blue-400">Projects</h2>
       </div>
 
-      {/* Card Container */}
       <div className="relative mx-auto overflow-hidden w-[600px] h-[600px]">
         {projects.map((project) => {
           const isCenterCard = project.id === centerCard;
@@ -46,7 +45,7 @@ const Projects = () => {
           return (
             <motion.div
               key={project.id}
-              onClick={() => setCenterCard(project.id)} // Set clicked card as the center card
+              onClick={() => setCenterCard(project.id)} 
               className="absolute w-40 h-40 border border-gray-700 shadow-lg rounded-lg cursor-pointer overflow-hidden"
               style={{
                 top: isCenterCard
@@ -62,7 +61,7 @@ const Projects = () => {
                 opacity: centerCard === project.id || centerCard === null ? 1 : 0.5,
               }}
               whileHover={{
-                scale: isCenterCard ? 2.2 : 1.1, // Slight zoom effect on hover
+                scale: isCenterCard ? 2.2 : 1.1, 
                 transition: { duration: 0.2 },
               }}
               transition={{

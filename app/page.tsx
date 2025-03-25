@@ -4,9 +4,7 @@ import Hero from '../components/Hero';
 const Home = () => {
   return (
     <div>
-      {/* Hero Section */}
       <Hero />
-      {/* Projects Section */}
       <Projects />
     </div>
   );
