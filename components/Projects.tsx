@@ -53,11 +53,48 @@ const Projects = () => {
       id="projects"
       className="py-20 bg-gradient-to-br from-gray-900 to-black text-gray-100 relative"
     >
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-blue-400">Projects</h2>
-      </div>
+<div className="relative z-20 mb-12 flex justify-center">
+  <motion.div
+    className="bg-black/80 px-6 py-4 rounded-lg text-center inline-flex flex-col items-center"
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    <h2 className="text-4xl font-bold text-blue-400 mb-2">Projects</h2>
 
-      <div className="absolute inset-0 backdrop-blur-[2px] z-0" />
+    <motion.p
+      className="text-sm text-gray-400 font-mono tracking-wide"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            delayChildren: 0.4,
+            staggerChildren: 0.03,
+          },
+        },
+      }}
+    >
+      {"My full-stack builds in Go, C++, and TypeScript.".split("").map((char, i) => (
+        <motion.span
+          key={i}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </motion.p>
+  </motion.div>
+</div>
+
+
+<div className="absolute inset-0 backdrop-blur-[2px] z-0" />
+
 
       <motion.div
         whileHover={{ scale: 1.02 }}
