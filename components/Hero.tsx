@@ -3,34 +3,39 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const clamp = (value: string, min = -20, max = 90) => {
+  const num = parseFloat(value);
+  return `${Math.min(Math.max(num, min), max)}%`;
+};
+
 const techLogos = [
   {
     id: 1,
     name: "JavaScript",
     badge: "https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E",
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    position: { top: "5%", left: "10%" },
+    position: { top: "-20%", left: "5%" },
   },
   {
     id: 2,
     name: "TypeScript",
     badge: "https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white",
     link: "https://www.typescriptlang.org/",
-    position: { top: "40%", left: "5%" },
+    position: { top: "-10%", left: "-1%" },
   },
   {
     id: 3,
     name: "Next.js",
     badge: "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
     link: "https://nextjs.org/",
-    position: { top: "20%", left: "10%" },
+    position: { top: "2%", left: "5%" },
   },
   {
     id: 4,
     name: "Firebase",
     badge: "https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase",
     link: "https://firebase.google.com/",
-    position: { top: "55%", left: "10%" },
+    position: { top: "18%", left: "3%" },
   },
 
   {
@@ -38,7 +43,7 @@ const techLogos = [
     name: "MySQL",
     badge: "https://img.shields.io/badge/mysql-%234479A1.svg?style=for-the-badge&logo=mysql&logoColor=white",
     link: "https://www.mysql.com/",
-    position: { top: "20%", left: "27%" },
+    position: { top: "30%", left: "1%" },
   },
   {
     id: 6,
@@ -157,53 +162,64 @@ const Hero = () => {
     <section className="pt-20 bg-gradient-to-r from-blue-500 via-purple-600 to-blue-500 text-white text-center py-2 relative">
       {/* Hero Text */}
       <div className="max-w-4xl mx-auto px-4 z-10">
-        <h1 className="text-3xl font-extrabold">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold">
           Hi, I’m <span className="text-yellow-300">Klea</span>
         </h1>
-        <p className="mt-2 text-base">
+        <p className="mt-2 text-sm md:text-base">
           Software Engineer | Full Stack Developer | Problem Solver
         </p>
       </div>
 
-      {/* Invisible Bounding Container - Matching Hero Section Width */}
-      <div className="relative mx-auto max-w-4xl h-[200px] border border-transparent overflow-hidden">
-        {techLogos.map((tech, index) => (
-          <motion.a
-            key={tech.id}
-            href={tech.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{
-              opacity: 0,
-              scale: 0.5,
-              x: "100vw",
-              y: "100vh",
-            }}
-            animate={{
-              opacity: 1,
-              scale: 0.9,
-              x: 0,
-              y: 0,
-              top: tech.position.top,
-              left: tech.position.left,
-            }}
-            transition={{
-              delay: index * 0.2,
-              duration: 1.5,
-              ease: "easeInOut",
-            }}
-            className="absolute w-auto h-auto rounded-lg overflow-hidden shadow-lg cursor-pointer"
-          >
-            <img
-              src={tech.badge}
-              alt={`${tech.name} badge`}
-              className="w-full h-full object-cover"
-            />
-          </motion.a>
-        ))}
+      {/* Badge Display Box */}
+      <div className="relative mx-auto max-w-4xl mt-8 px-4">
+
+        <div className="relative w-full h-[140px] sm:h-[160px] md:h-[180px] rounded-xl bg-black/20 backdrop-blur-sm shadow-xl border border-white/10 overflow-hidden">
+          {techLogos.map((tech, index) => (
+            <motion.a
+              key={tech.id}
+              href={tech.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{
+                opacity: 0,
+                scale: 0.3,
+                y: 50,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 0.85,
+              }}
+              transition={{
+                delay: index * 0.04,
+                duration: 1,
+                type: "spring",
+                stiffness: 180,
+                damping: 20,
+              }}
+              className="absolute transition-transform hover:scale-110"
+              style={{
+                top: clamp(tech.position.top),
+                left: clamp(tech.position.left),
+                transform: "translate(-50%, -50%)",
+                width: "8vw",
+                maxWidth: "90px",
+                minWidth: "50px",
+                pointerEvents: "auto",
+              }}
+            >
+              <img
+                src={tech.badge}
+                alt={`${tech.name} badge`}
+                className="w-full h-auto object-contain"
+                style={{ display: "block", pointerEvents: "none" }}
+              />
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
+
 
 export default Hero;
