@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
   { id: 1, title: "GipityLauncher", image: "/images/project.png", link: "/projects/GipityLauncher" },
@@ -15,20 +15,19 @@ const projects = [
   { id: 9, title: "Physics Engine", image: "/images/project.png", link: "/projects/PhysicsEngine" },
 ];
 
+const positions: Record<number, { top: string; left: string }> = {
+  1: { top: "18%", left: "15%" },
+  2: { top: "11%", left: "8%" },
+  3: { top: "18%", left: "65%" },
+  4: { top: "10%", left: "72%" },
+  6: { top: "60%", left: "65%" },
+  7: { top: "60%", left: "15%" },
+  8: { top: "67%", left: "8%" },
+  9: { top: "67%", left: "72%" },
+};
 
 const Projects = () => {
-  const [centerCard, setCenterCard] = useState<number>(5); 
-
-  const positions: { [key: number]: { top: string; left: string } } = {
-    1: { top: "18%", left: "15%" },
-    2: { top: "11%", left: "8%" },
-    3: { top: "18%", left: "65%" },
-    4: { top: "10%", left: "72%" },
-    6: { top: "60%", left: "65%" },
-    7: { top: "60%", left: "15%" },
-    8: { top: "67%", left: "8%" },
-    9: { top: "67%", left: "72%" },
-  };
+  const [centerCard, setCenterCard] = useState<number>(5);
 
   return (
     <section
@@ -40,56 +39,52 @@ const Projects = () => {
       </div>
 
       <div className="relative mx-auto overflow-hidden w-[600px] h-[600px]">
-        {projects.map((project) => {
-          const isCenterCard = project.id === centerCard;
+        <AnimatePresence>
+          {projects.map((project) => {
+            const isCenter = project.id === centerCard;
+            const defaultPos = positions[project.id] || { top: "40%", left: "40%" };
 
-          return (
-            <motion.div
-              key={project.id}
-              onClick={() => setCenterCard(project.id)} 
-              className="absolute w-40 h-40 border border-gray-700 shadow-lg rounded-lg cursor-pointer overflow-hidden"
-              style={{
-                top: isCenterCard
-                  ? "40%"
-                  : positions[project.id]?.top || "40%",
-                left: isCenterCard
-                  ? "40%"
-                  : positions[project.id]?.left || "40%",
-                zIndex: isCenterCard ? 100 : 10,
-              }}
-              animate={{
-                scale: isCenterCard ? 1.15 : 1,
-                opacity: centerCard === project.id || centerCard === null ? 1 : 0.5,
-              }}
-              whileHover={{
-                scale: isCenterCard ? 2.2 : 1.1, 
-                transition: { duration: 0.2 },
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 25,
-                duration: 0.5,
-              }}
-            >
-              <img
-                src={project.image}
-                alt={`Screenshot of ${project.title}`}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute bottom-0 left-0 w-full text-center bg-black bg-opacity-50 py-2">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white font-bold hover:underline"
-                >
-                  {project.title}
-                </a>
-              </div>
-            </motion.div>
-          );
-        })}
+            return (
+              <motion.div
+                key={project.id}
+                onMouseEnter={() => setCenterCard(project.id)}
+                className="absolute w-40 h-40 border border-gray-700 shadow-lg rounded-lg cursor-pointer overflow-hidden"
+                animate={{
+                  top: isCenter ? "40%" : defaultPos.top,
+                  left: isCenter ? "40%" : defaultPos.left,
+                  scale: isCenter ? 1.2 : 1,
+                  opacity: isCenter ? 1 : 0.6,
+                  zIndex: isCenter ? 100 : 10,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 30,
+                }}
+                whileHover={{
+                  scale: isCenter ? 2.1 : 1.1,
+                  transition: { duration: 0.2 },
+                }}
+              >
+                <img
+                  src={project.image}
+                  alt={`Screenshot of ${project.title}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 w-full text-center bg-black bg-opacity-50 py-2">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white font-bold hover:underline"
+                  >
+                    {project.title}
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
       </div>
     </section>
   );
