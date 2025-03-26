@@ -85,10 +85,12 @@ const Projects = () => {
                   stiffness: 400,
                   damping: 30,
                 }}
+                //make zoom on hover - still needs tweek
                 whileHover={{
-                  scale: isCenter ? 2.3 : 1.1,
-                  transition: { duration: 0.25 },
+                  scale: isCenter ? 2.6 : 1.1,
+                  transition: { duration: 0.3 },
                 }}
+                
               >
                 <img
                   src={project.image}
