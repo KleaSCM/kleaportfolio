@@ -8,12 +8,12 @@ const projects = [
   { id: 1, title: "GipityLauncher", image: "/images/project.png", link: "/projects/GipityLauncher", blurb: "A sleek launcher for apps built with Go and Fyne." },
   { id: 2, title: "Armanda", image: "/images/project.png", link: "/projects/Armanda", blurb: "Real-time fleet strategy simulation with smart unit AI." },
   { id: 3, title: "ArtScape", image: "/images/project.png", link: "/projects/ArtScape", blurb: "A digital art gallery showcasing generative visuals." },
-  { id: 4, title: "BlueFrog", image: "/images/project.png", link: "/projects/BlueFrog", blurb: "Privacy-first messaging built with encryption in mind." },
+  { id: 4, title: "BlueFrog", image: "/images/bf.png", link: "/projects/BlueFrog", blurb: "Privacy-first messaging built with encryption in mind." },
   { id: 5, title: "Kdeamon", image: "/images/project.png", link: "/projects/Kdeamon", blurb: "A blazing-fast fuzzy launcher daemon for Linux." },
   { id: 6, title: "GeoGO", image: "/images/Geogo.png", link: "/projects/GeoGO", blurb: "Meteorite geolocation and spatial search API using PostGIS." },
-  { id: 7, title: "ShandrisAI", image: "/images/project.png", link: "/projects/ShandrisAI", blurb: "An LLM-powered identity-aware AI assistant with memory." },
-  { id: 8, title: "VulSCAN", image: "/images/project.png", link: "/projects/VulSCAN", blurb: "Lightweight vulnerability scanner with plugin architecture." },
-  { id: 9, title: "Physics Engine", image: "/images/project.png", link: "/projects/PhysicsEngine", blurb: "C++ physics simulation core with 3D collisions and forces." },
+  { id: 7, title: "ShandrisAI", image: "/images/shandris.png", link: "/projects/ShandrisAI", blurb: "An LLM-powered identity-aware AI assistant with memory." },
+  { id: 8, title: "VulSCAN", image: "/images/vulnscan.png", link: "/projects/VulSCAN", blurb: "Lightweight vulnerability scanner with plugin architecture." },
+  { id: 9, title: "Physics Engine", image: "/images/physEng.png", link: "/projects/PhysicsEngine", blurb: "C++ physics simulation core with 3D collisions and forces." },
 ];
 
 const fanLayout = [
