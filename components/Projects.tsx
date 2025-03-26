@@ -9,11 +9,12 @@ const projects = [
   { id: 3, title: "ArtScape", image: "/images/project.png", link: "/projects/ArtScape" },
   { id: 4, title: "BlueFrog", image: "/images/project.png", link: "/projects/BlueFrog" },
   { id: 5, title: "Kdeamon", image: "/images/project.png", link: "/projects/Kdeamon" },
-  { id: 6, title: "SylvDA", image: "/images/project.png", link: "/projects/SylvDA" },
-  { id: 7, title: "Valeera", image: "/images/project.png", link: "/projects/Valeera" },
+  { id: 6, title: "GeoGO", image: "/images/project.png", link: "/projects/GeoGO" },
+  { id: 7, title: "ShandrisAI", image: "/images/project.png", link: "/projects/ShandrisAI" },
   { id: 8, title: "VulSCAN", image: "/images/project.png", link: "/projects/VulSCAN" },
-  { id: 9, title: "EncryptDcrypt", image: "/images/project.png", link: "/projects/EncryptDcrypt" },
+  { id: 9, title: "Physics Engine", image: "/images/project.png", link: "/projects/PhysicsEngine" },
 ];
+
 
 const Projects = () => {
   const [centerCard, setCenterCard] = useState<number>(5); 
