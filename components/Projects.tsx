@@ -43,20 +43,22 @@ const Projects = () => {
     if (!hoverDelay && id !== centerCard) {
       setCenterCard(id);
       setHoverDelay(true);
-      setTimeout(() => setHoverDelay(false), 300); 
+      setTimeout(() => setHoverDelay(false), 300);
     }
   };
 
   return (
     <section
       id="projects"
-      className="py-20 bg-gradient-to-br from-gray-900 to-black text-gray-100"
+      className="py-20 bg-gradient-to-br from-gray-900 to-black text-gray-100 relative"
     >
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-blue-400">Projects</h2>
       </div>
 
-      <div className="relative mx-auto overflow-hidden w-[600px] h-[600px]">
+      <div className="absolute inset-0 backdrop-blur-sm z-0" />
+
+      <div className="relative mx-auto overflow-hidden w-[600px] h-[600px] z-10">
         <AnimatePresence>
           {projects.map((project) => {
             const isCenter = project.id === centerCard;
@@ -70,11 +72,15 @@ const Projects = () => {
                 onMouseEnter={() => handleCardHover(project.id)}
                 drag
                 dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-                className="absolute w-40 h-40 border border-gray-700 shadow-lg rounded-lg cursor-pointer overflow-hidden"
+                className={`absolute w-40 h-40 border rounded-lg cursor-pointer overflow-hidden transition-shadow duration-300 ${
+                  isCenter
+                    ? "shadow-[0_0_30px_10px_rgba(0,255,255,0.4)] border-cyan-400"
+                    : "border-gray-700 shadow-lg"
+                }`}
                 animate={{
                   top: isCenter ? "40%" : defaultPos.top,
                   left: isCenter ? "40%" : defaultPos.left,
-                  scale: isCenter ? 1.35 : 1,
+                  scale: isCenter ? 1.45 : 1,
                   opacity: isCenter ? 1 : 0.6,
                   zIndex: isCenter ? 100 : 10,
                   rotateX,
@@ -85,12 +91,13 @@ const Projects = () => {
                   stiffness: 400,
                   damping: 30,
                 }}
-                //make zoom on hover - still needs tweek
                 whileHover={{
                   scale: isCenter ? 2.6 : 1.1,
+                  boxShadow: isCenter
+                    ? "0 0 50px rgba(0,255,255,0.6)"
+                    : "0 0 15px rgba(255,255,255,0.4)",
                   transition: { duration: 0.3 },
                 }}
-                
               >
                 <img
                   src={project.image}
