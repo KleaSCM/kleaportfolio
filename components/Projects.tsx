@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
@@ -28,6 +28,24 @@ const positions: Record<number, { top: string; left: string }> = {
 
 const Projects = () => {
   const [centerCard, setCenterCard] = useState<number>(5);
+  const [hoverDelay, setHoverDelay] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const handleCardHover = (id: number) => {
+    if (!hoverDelay && id !== centerCard) {
+      setCenterCard(id);
+      setHoverDelay(true);
+      setTimeout(() => setHoverDelay(false), 300); 
+    }
+  };
 
   return (
     <section
@@ -43,18 +61,24 @@ const Projects = () => {
           {projects.map((project) => {
             const isCenter = project.id === centerCard;
             const defaultPos = positions[project.id] || { top: "40%", left: "40%" };
+            const rotateX = ((mousePos.y - 300) / 20) * (isCenter ? 1 : 0.2);
+            const rotateY = ((mousePos.x - 300) / 20) * (isCenter ? -1 : -0.2);
 
             return (
               <motion.div
                 key={project.id}
-                onMouseEnter={() => setCenterCard(project.id)}
+                onMouseEnter={() => handleCardHover(project.id)}
+                drag
+                dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
                 className="absolute w-40 h-40 border border-gray-700 shadow-lg rounded-lg cursor-pointer overflow-hidden"
                 animate={{
                   top: isCenter ? "40%" : defaultPos.top,
                   left: isCenter ? "40%" : defaultPos.left,
-                  scale: isCenter ? 1.2 : 1,
+                  scale: isCenter ? 1.35 : 1,
                   opacity: isCenter ? 1 : 0.6,
                   zIndex: isCenter ? 100 : 10,
+                  rotateX,
+                  rotateY,
                 }}
                 transition={{
                   type: "spring",
@@ -62,8 +86,8 @@ const Projects = () => {
                   damping: 30,
                 }}
                 whileHover={{
-                  scale: isCenter ? 2.1 : 1.1,
-                  transition: { duration: 0.2 },
+                  scale: isCenter ? 2.3 : 1.1,
+                  transition: { duration: 0.25 },
                 }}
               >
                 <img
